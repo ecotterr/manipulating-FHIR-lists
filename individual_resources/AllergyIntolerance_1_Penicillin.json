@@ -1,0 +1,58 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "1",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nPenicillin G 7980 (RXNorm)</div>"
+    },
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                "code": "active"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                "code": "confirmed"
+            }
+        ]
+    },
+    "type": "allergy",
+    "category": [
+        "medication"
+    ],
+    "criticality": "high",
+    "code": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "7980",
+                "display": "Penicillin"
+            }
+        ],
+        "text": "Penicillin"
+    },
+    "patient": {
+        "reference": "Patient/123"
+    },
+    "reaction": [
+        {
+            "manifestation": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "39579001",
+                            "display": "Anaphylaxis"
+                        }
+                    ]
+                }
+            ],
+            "severity": "severe"
+        }
+    ]
+}

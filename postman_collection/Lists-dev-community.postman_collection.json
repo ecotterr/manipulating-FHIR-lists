@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "d2d6206f-ef2a-4a3f-9a70-b62e18727575",
+		"name": "Lists-dev-community",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20811993",
+		"_collection_link": "https://eco666-5720.postman.co/workspace/FHIR-StressTesting~2d078900-5fa9-4d66-b572-2d9ededb6021/collection/20811993-d2d6206f-ef2a-4a3f-9a70-b62e18727575?action=share&source=collection_link&creator=20811993"
+	},
+	"item": [
+		{
+			"name": "Full bundle with update-functionals",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resourceType\": \"Bundle\",\r\n    \"type\": \"transaction\",\r\n    \"entry\": [\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"List\",\r\n                \"id\": \"2\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nCurrent Allergies list for Patient John Doe</div>\"\r\n                },\r\n                \"status\": \"current\",\r\n                \"mode\": \"working\",\r\n                \"title\": \"Current Allergy List\",\r\n                \"code\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://loinc.org\",\r\n                            \"code\": \"52472-8\",\r\n                            \"display\": \"Allergies and Adverse Drug Reactions\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Current Allergy List\"\r\n                },\r\n                \"date\": \"2015-07-14T23:10:23+11:00\",\r\n                \"source\": {\r\n                    \"reference\": \"Practitioner/456\"\r\n                },\r\n                \"subject\": {\r\n                    \"reference\": \"Patient/123\"\r\n                },\r\n                \"orderedBy\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/list-order\",\r\n                            \"code\": \"entry-date\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"entry\": [\r\n                    {\r\n                        \"item\": {\r\n                            \"reference\": \"AllergyIntolerance/1\"\r\n                        }\r\n                    },\r\n                    {\r\n                        \"item\": {\r\n                            \"reference\": \"AllergyIntolerance/2\"\r\n                        }\r\n                    }\r\n                ]\r\n            },\r\n            \"request\": {\r\n                \"method\": \"POST\",\r\n                \"url\": \"List/2/$update-functional?for=123&name=\\\\$current-allergies\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"Patient\",\r\n                \"id\": \"123\",\r\n                \"identifier\": [\r\n                    {\r\n                        \"system\": \"http://hospital.example.org/mrn\",\r\n                        \"value\": \"MRN-12345\"\r\n                    }\r\n                ],\r\n                \"name\": [\r\n                    {\r\n                        \"use\": \"official\",\r\n                        \"family\": \"Doe\",\r\n                        \"given\": [\r\n                            \"John\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"gender\": \"male\",\r\n                \"birthDate\": \"1982-03-15\"\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"Patient/123\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"AllergyIntolerance\",\r\n                \"id\": \"1\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nPenicillin G 7980 (RXNorm)</div>\"\r\n                },\r\n                \"clinicalStatus\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\",\r\n                            \"code\": \"active\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"verificationStatus\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/allergyintolerance-verification\",\r\n                            \"code\": \"confirmed\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"type\": \"allergy\",\r\n                \"category\": [\r\n                    \"medication\"\r\n                ],\r\n                \"criticality\": \"high\",\r\n                \"code\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\r\n                            \"code\": \"7980\",\r\n                            \"display\": \"Penicillin\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Penicillin\"\r\n                },\r\n                \"patient\": {\r\n                    \"reference\": \"Patient/123\"\r\n                },\r\n                \"reaction\": [\r\n                    {\r\n                        \"manifestation\": [\r\n                            {\r\n                                \"coding\": [\r\n                                    {\r\n                                        \"system\": \"http://snomed.info/sct\",\r\n                                        \"code\": \"39579001\",\r\n                                        \"display\": \"Anaphylaxis\"\r\n                                    }\r\n                                ]\r\n                            }\r\n                        ],\r\n                        \"severity\": \"severe\"\r\n                    }\r\n                ]\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"AllergyIntolerance/1\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"AllergyIntolerance\",\r\n                \"id\": \"2\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nPeanut Snomed: 256349002</div>\"\r\n                },\r\n                \"clinicalStatus\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical\",\r\n                            \"code\": \"active\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"verificationStatus\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://terminology.hl7.org/CodeSystem/allergyintolerance-verification\",\r\n                            \"code\": \"unconfirmed\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"type\": \"allergy\",\r\n                \"category\": [\r\n                    \"food\"\r\n                ],\r\n                \"criticality\": \"low\",\r\n                \"code\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://snomed.info/sct\",\r\n                            \"code\": \"256349002\",\r\n                            \"display\": \"Peanut allergy\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Peanut allergy\"\r\n                },\r\n                \"patient\": {\r\n                    \"reference\": \"Patient/123\"\r\n                },\r\n                \"reaction\": [\r\n                    {\r\n                        \"manifestation\": [\r\n                            {\r\n                                \"coding\": [\r\n                                    {\r\n                                        \"system\": \"http://snomed.info/sct\",\r\n                                        \"code\": \"247472004\",\r\n                                        \"display\": \"Hives\"\r\n                                    }\r\n                                ]\r\n                            }\r\n                        ],\r\n                        \"severity\": \"mild\"\r\n                    }\r\n                ]\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"AllergyIntolerance/2\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"Practitioner\",\r\n                \"id\": \"456\",\r\n                \"identifier\": [\r\n                    {\r\n                        \"system\": \"http://example.org/provider-ids\",\r\n                        \"value\": \"PRAC-456\"\r\n                    }\r\n                ],\r\n                \"name\": [\r\n                    {\r\n                        \"use\": \"official\",\r\n                        \"family\": \"Nguyen\",\r\n                        \"given\": [\r\n                            \"Sarah\",\r\n                            \"A.\"\r\n                        ],\r\n                        \"prefix\": [\r\n                            \"Dr.\"\r\n                        ]\r\n                    }\r\n                ],\r\n                \"telecom\": [\r\n                    {\r\n                        \"system\": \"phone\",\r\n                        \"value\": \"555-222-9876\",\r\n                        \"use\": \"work\"\r\n                    },\r\n                    {\r\n                        \"system\": \"email\",\r\n                        \"value\": \"sarah.nguyen@exampleclinics.org\",\r\n                        \"use\": \"work\"\r\n                    }\r\n                ],\r\n                \"address\": [\r\n                    {\r\n                        \"use\": \"work\",\r\n                        \"line\": [\r\n                            \"200 Harbor Medical Way\"\r\n                        ],\r\n                        \"city\": \"Cambridge\",\r\n                        \"state\": \"MA\",\r\n                        \"postalCode\": \"02139\",\r\n                        \"country\": \"USA\"\r\n                    }\r\n                ],\r\n                \"qualification\": [\r\n                    {\r\n                        \"identifier\": [\r\n                            {\r\n                                \"system\": \"http://hl7.org/fhir/sid/us-npi\",\r\n                                \"value\": \"9876543210\"\r\n                            }\r\n                        ],\r\n                        \"code\": {\r\n                            \"coding\": [\r\n                                {\r\n                                    \"system\": \"http://terminology.hl7.org/CodeSystem/v2-0360/2.7\",\r\n                                    \"code\": \"MD\",\r\n                                    \"display\": \"Doctor of Medicine\"\r\n                                }\r\n                            ]\r\n                        }\r\n                    }\r\n                ]\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"Practitioner/456\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"List\",\r\n                \"id\": \"1\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nCurrent Devices list for Patient John Doe</div>\"\r\n                },\r\n                \"status\": \"current\",\r\n                \"mode\": \"working\",\r\n                \"title\": \"Current Remote Monitoring Devices\",\r\n                \"code\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://example.org/fhir/list-codes\",\r\n                            \"code\": \"current-remote-devices\",\r\n                            \"display\": \"Current Remote Monitoring Devices\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"current-remote-devices\"\r\n                },\r\n                \"subject\": {\r\n                    \"reference\": \"Patient/123\"\r\n                },\r\n                \"date\": \"2025-11-28T14:12:00Z\",\r\n                \"source\": {\r\n                    \"reference\": \"Device/abc123\",\r\n                    \"display\": \"Remote Monitoring Enrollment Order\"\r\n                },\r\n                \"entry\": [\r\n                    {\r\n                        \"item\": {\r\n                            \"reference\": \"Device/1\",\r\n                            \"display\": \"Smart Health Watch\"\r\n                        }\r\n                    },\r\n                    {\r\n                        \"item\": {\r\n                            \"reference\": \"Device/9\",\r\n                            \"display\": \"Continuous Glucose Sensor\"\r\n                        }\r\n                    },\r\n                    {\r\n                        \"item\": {\r\n                            \"reference\": \"Device/4\",\r\n                            \"display\": \"Bluetooth Blood Pressure Cuff\"\r\n                        }\r\n                    }\r\n                ]\r\n            },\r\n            \"request\": {\r\n                \"method\": \"POST\",\r\n                \"url\": \"List/1/$update-functional?for=123&name=\\\\$current-remote-devices\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"Device\",\r\n                \"id\": \"1\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nSmart Watch 706168005 (sct)</div>\"\r\n                },\r\n                \"status\": \"active\",\r\n                \"manufacturer\": \"WellTrack Technologies\",\r\n                \"deviceName\": [\r\n                    {\r\n                        \"name\": \"Smart Health Watch\",\r\n                        \"type\": \"user-friendly-name\"\r\n                    }\r\n                ],\r\n                \"type\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://snomed.info/sct\",\r\n                            \"code\": \"706168005\",\r\n                            \"display\": \"Smart wearable device\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Smart Health Watch\"\r\n                },\r\n                \"udiCarrier\": [\r\n                    {\r\n                        \"deviceIdentifier\": \"12345678901234\",\r\n                        \"issuer\": \"http://hl7.org/fhir/NamingSystem/fda-udi\",\r\n                        \"jurisdiction\": \"http://hl7.org/fhir/NamingSystem/fda-udi\"\r\n                    }\r\n                ],\r\n                \"patient\": {\r\n                    \"reference\": \"Patient/123\"\r\n                }\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"Device/1\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"Device\",\r\n                \"id\": \"4\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nBluetooth Blood Pressure Cuff 706170006 (sct)</div>\"\r\n                },\r\n                \"status\": \"active\",\r\n                \"manufacturer\": \"PulseWave Medical\",\r\n                \"deviceName\": [\r\n                    {\r\n                        \"name\": \"Bluetooth Blood Pressure Cuff\",\r\n                        \"type\": \"user-friendly-name\"\r\n                    }\r\n                ],\r\n                \"type\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://snomed.info/sct\",\r\n                            \"code\": \"706170006\",\r\n                            \"display\": \"Blood pressure monitoring device\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Bluetooth Blood Pressure Cuff\"\r\n                },\r\n                \"udiCarrier\": [\r\n                    {\r\n                        \"deviceIdentifier\": \"55556666777788\",\r\n                        \"issuer\": \"http://hl7.org/fhir/NamingSystem/fda-udi\",\r\n                        \"jurisdiction\": \"http://hl7.org/fhir/NamingSystem/fda-udi\"\r\n                    }\r\n                ],\r\n                \"patient\": {\r\n                    \"reference\": \"Patient/123\"\r\n                }\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"Device/4\"\r\n            }\r\n        },\r\n        {\r\n            \"resource\": {\r\n                \"resourceType\": \"Device\",\r\n                \"id\": \"9\",\r\n                \"text\": {\r\n                    \"status\": \"generated\",\r\n                    \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\nContinuous Glucose Sensor 706171005 (sct)</div>\"\r\n                },\r\n                \"status\": \"active\",\r\n                \"manufacturer\": \"GlucoTech Inc.\",\r\n                \"deviceName\": [\r\n                    {\r\n                        \"name\": \"Continuous Glucose Sensor\",\r\n                        \"type\": \"user-friendly-name\"\r\n                    }\r\n                ],\r\n                \"type\": {\r\n                    \"coding\": [\r\n                        {\r\n                            \"system\": \"http://snomed.info/sct\",\r\n                            \"code\": \"706171005\",\r\n                            \"display\": \"Glucose monitoring device\"\r\n                        }\r\n                    ],\r\n                    \"text\": \"Continuous Glucose Sensor\"\r\n                },\r\n                \"udiCarrier\": [\r\n                    {\r\n                        \"deviceIdentifier\": \"99990000111122\",\r\n                        \"issuer\": \"http://hl7.org/fhir/NamingSystem/fda-udi\",\r\n                        \"jurisdiction\": \"http://hl7.org/fhir/NamingSystem/fda-udi\"\r\n                    }\r\n                ],\r\n                \"patient\": {\r\n                    \"reference\": \"Patient/123\"\r\n                }\r\n            },\r\n            \"request\": {\r\n                \"method\": \"PUT\",\r\n                \"url\": \"Device/9\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update $current-allergies List",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resourceType\": \"List\",\r\n    \"id\": \"2\",  \r\n    \"text\": {\r\n        \"status\": \"generated\",\r\n        \"div\": \"<div xmlns=\\\"http://www.w3.org/1999/xhtml\\\">\\n      <p>Patient Peter Chalmers, DOB = Dec 25, 1974, MRN = 12345 (Acme Healthcare) has the following allergies</p>\\n      <ul>\\n        <li>cashew nut allergenic extract Injectable Product (<b>High</b>)</li>\\n        <li>Allergenic extract, penicillin (high)</li>\\n      </ul>\\n    </div>\"\r\n    },\r\n    \"status\": \"current\",\r\n    \"mode\": \"working\",\r\n    \"title\": \"Current Allergy List\",\r\n    \"code\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://loinc.org\",\r\n                \"code\": \"52472-8\",\r\n                \"display\": \"Allergies and Adverse Drug Reactions\"\r\n            }\r\n        ],\r\n        \"text\": \"Current Allergy List\"\r\n    },\r\n    \"date\": \"2015-07-14T23:10:23+11:00\",\r\n    \"source\": {\r\n        \"reference\": \"Patient/123\"\r\n    },\r\n    \"subject\": {\r\n        \"reference\": \"Patient/123\"\r\n    },\r\n    \"orderedBy\": {\r\n        \"coding\": [\r\n            {\r\n                \"system\": \"http://terminology.hl7.org/CodeSystem/list-order\",\r\n                \"code\": \"entry-date\"\r\n            }\r\n        ]\r\n    },\r\n    \"entry\": [\r\n        {\r\n            \"item\": {\r\n                \"reference\": \"AllergyIntolerance/1\"\r\n            }\r\n        },\r\n        {\r\n            \"item\": {\r\n                \"reference\": \"AllergyIntolerance/2\"\r\n            }\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/List/2/$update-functional?for=123&name=\\$current-allergies",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"List",
+						"2",
+						"$update-functional"
+					],
+					"query": [
+						{
+							"key": "for",
+							"value": "123"
+						},
+						{
+							"key": "name",
+							"value": "\\$current-allergies"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update $current-remote-devices List",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"List\",\r\n  \"id\": \"1\",\r\n  \"status\": \"current\",\r\n  \"mode\": \"working\",\r\n  \"title\": \"Current Remote Monitoring Devices\",\r\n  \"code\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://example.org/fhir/list-codes\",\r\n        \"code\": \"current-remote-devices\",\r\n        \"display\": \"Current Remote Monitoring Devices\"\r\n      }\r\n    ]\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/123\"\r\n  },\r\n  \"date\": \"2025-11-28T14:12:00Z\",\r\n  \"source\": {\r\n    \"reference\": \"Device/456\",\r\n    \"display\": \"Remote Monitoring Enrollment Order\"\r\n  },\r\n  \"entry\": [\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/1\",\r\n        \"display\": \"Smart Health Watch\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/9\",\r\n        \"display\": \"Continuous Glucose Sensor\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/4\",\r\n        \"display\": \"Bluetooth Blood Pressure Cuff\"\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/List/1/$update-functional?for=123&name=\\$current-remote-devices",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"List",
+						"1",
+						"$update-functional"
+					],
+					"query": [
+						{
+							"key": "for",
+							"value": "123"
+						},
+						{
+							"key": "name",
+							"value": "\\$current-remote-devices"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find $current-remote-devices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"List\",\r\n  \"id\": \"current-remote-devices-1\",\r\n  \"status\": \"current\",\r\n  \"mode\": \"working\",\r\n  \"title\": \"Current Remote Monitoring Devices\",\r\n  \"code\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://example.org/fhir/list-codes\",\r\n        \"code\": \"current-remote-devices\",\r\n        \"display\": \"Current Remote Monitoring Devices\"\r\n      }\r\n    ]\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/123\"\r\n  },\r\n  \"date\": \"2025-11-28T14:12:00Z\",\r\n  \"source\": {\r\n    \"reference\": \"Device/abc123\",\r\n    \"display\": \"Remote Monitoring Enrollment Order\"\r\n  },\r\n  \"entry\": [\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/smartwatch-1\",\r\n        \"display\": \"Smart Health Watch\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/glucose-sensor-9\",\r\n        \"display\": \"Continuous Glucose Sensor\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/bp-cuff-4\",\r\n        \"display\": \"Bluetooth Blood Pressure Cuff\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/List/$find?patient=123&name=$current-remote-devices",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"List",
+						"$find"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "123"
+						},
+						{
+							"key": "name",
+							"value": "$current-remote-devices"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find $current-allergies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"List\",\r\n  \"id\": \"current-remote-devices-1\",\r\n  \"status\": \"current\",\r\n  \"mode\": \"working\",\r\n  \"title\": \"Current Remote Monitoring Devices\",\r\n  \"code\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://example.org/fhir/list-codes\",\r\n        \"code\": \"current-remote-devices\",\r\n        \"display\": \"Current Remote Monitoring Devices\"\r\n      }\r\n    ]\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/123\"\r\n  },\r\n  \"date\": \"2025-11-28T14:12:00Z\",\r\n  \"source\": {\r\n    \"reference\": \"Device/abc123\",\r\n    \"display\": \"Remote Monitoring Enrollment Order\"\r\n  },\r\n  \"entry\": [\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/smartwatch-1\",\r\n        \"display\": \"Smart Health Watch\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/glucose-sensor-9\",\r\n        \"display\": \"Continuous Glucose Sensor\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/bp-cuff-4\",\r\n        \"display\": \"Bluetooth Blood Pressure Cuff\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/List/$find?patient=123&name=$current-allergies",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"List",
+						"$find"
+					],
+					"query": [
+						{
+							"key": "patient",
+							"value": "123"
+						},
+						{
+							"key": "name",
+							"value": "$current-allergies"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patient 123",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "SYS",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "SuperUser",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/fhir+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resourceType\": \"List\",\r\n  \"id\": \"current-remote-devices-1\",\r\n  \"status\": \"current\",\r\n  \"mode\": \"working\",\r\n  \"title\": \"Current Remote Monitoring Devices\",\r\n  \"code\": {\r\n    \"coding\": [\r\n      {\r\n        \"system\": \"http://example.org/fhir/list-codes\",\r\n        \"code\": \"current-remote-devices\",\r\n        \"display\": \"Current Remote Monitoring Devices\"\r\n      }\r\n    ]\r\n  },\r\n  \"subject\": {\r\n    \"reference\": \"Patient/123\"\r\n  },\r\n  \"date\": \"2025-11-28T14:12:00Z\",\r\n  \"source\": {\r\n    \"reference\": \"Device/abc123\",\r\n    \"display\": \"Remote Monitoring Enrollment Order\"\r\n  },\r\n  \"entry\": [\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/smartwatch-1\",\r\n        \"display\": \"Smart Health Watch\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/glucose-sensor-9\",\r\n        \"display\": \"Continuous Glucose Sensor\"\r\n      }\r\n    },\r\n    {\r\n      \"item\": {\r\n        \"reference\": \"Device/bp-cuff-4\",\r\n        \"display\": \"Bluetooth Blood Pressure Cuff\"\r\n      }\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/Patient/123",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"Patient",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

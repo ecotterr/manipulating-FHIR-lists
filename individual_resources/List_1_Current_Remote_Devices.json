@@ -1,0 +1,49 @@
+{
+    "resourceType": "List",
+    "id": "1",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nCurrent Devices list for Patient John Doe</div>"
+    },
+    "status": "current",
+    "mode": "working",
+    "title": "Current Remote Monitoring Devices",
+    "code": {
+        "coding": [
+            {
+                "system": "http://example.org/fhir/list-codes",
+                "code": "current-remote-devices",
+                "display": "Current Remote Monitoring Devices"
+            }
+        ],
+        "text": "current-remote-devices"
+    },
+    "subject": {
+        "reference": "Patient/123"
+    },
+    "date": "2025-11-28T14:12:00Z",
+    "source": {
+        "reference": "Device/abc123",
+        "display": "Remote Monitoring Enrollment Order"
+    },
+    "entry": [
+        {
+            "item": {
+                "reference": "Device/1",
+                "display": "Smart Health Watch"
+            }
+        },
+        {
+            "item": {
+                "reference": "Device/9",
+                "display": "Continuous Glucose Sensor"
+            }
+        },
+        {
+            "item": {
+                "reference": "Device/4",
+                "display": "Bluetooth Blood Pressure Cuff"
+            }
+        }
+    ]
+}

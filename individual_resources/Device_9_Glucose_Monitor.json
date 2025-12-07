@@ -1,0 +1,36 @@
+{
+    "resourceType": "Device",
+    "id": "9",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nContinuous Glucose Sensor 706171005 (sct)</div>"
+    },
+    "status": "active",
+    "manufacturer": "GlucoTech Inc.",
+    "deviceName": [
+        {
+            "name": "Continuous Glucose Sensor",
+            "type": "user-friendly-name"
+        }
+    ],
+    "type": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "706171005",
+                "display": "Glucose monitoring device"
+            }
+        ],
+        "text": "Continuous Glucose Sensor"
+    },
+    "udiCarrier": [
+        {
+            "deviceIdentifier": "99990000111122",
+            "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+            "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+        }
+    ],
+    "patient": {
+        "reference": "Patient/123"
+    }
+}

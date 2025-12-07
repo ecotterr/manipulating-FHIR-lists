@@ -1,0 +1,468 @@
+{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "List",
+                "id": "2",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nCurrent Allergies list for Patient John Doe</div>"
+                },
+                "status": "current",
+                "mode": "working",
+                "title": "Current Allergy List",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "52472-8",
+                            "display": "Allergies and Adverse Drug Reactions"
+                        }
+                    ],
+                    "text": "Current Allergy List"
+                },
+                "date": "2015-07-14T23:10:23+11:00",
+                "source": {
+                    "reference": "Practitioner/456"
+                },
+                "subject": {
+                    "reference": "Patient/123"
+                },
+                "orderedBy": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/list-order",
+                            "code": "entry-date"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "item": {
+                            "reference": "AllergyIntolerance/1"
+                        }
+                    },
+                    {
+                        "item": {
+                            "reference": "AllergyIntolerance/2"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "List/2/$update-functional?for=123&name=\\$current-allergies"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "123",
+                "identifier": [
+                    {
+                        "system": "http://hospital.example.org/mrn",
+                        "value": "MRN-12345"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Doe",
+                        "given": [
+                            "John"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1982-03-15"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/123"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "1",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nPenicillin G 7980 (RXNorm)</div>"
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                            "code": "active"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                            "code": "confirmed"
+                        }
+                    ]
+                },
+                "type": "allergy",
+                "category": [
+                    "medication"
+                ],
+                "criticality": "high",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "7980",
+                            "display": "Penicillin"
+                        }
+                    ],
+                    "text": "Penicillin"
+                },
+                "patient": {
+                    "reference": "Patient/123"
+                },
+                "reaction": [
+                    {
+                        "manifestation": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "39579001",
+                                        "display": "Anaphylaxis"
+                                    }
+                                ]
+                            }
+                        ],
+                        "severity": "severe"
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "AllergyIntolerance/1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "AllergyIntolerance",
+                "id": "2",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nPeanut Snomed: 256349002</div>"
+                },
+                "clinicalStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                            "code": "active"
+                        }
+                    ]
+                },
+                "verificationStatus": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                            "code": "unconfirmed"
+                        }
+                    ]
+                },
+                "type": "allergy",
+                "category": [
+                    "food"
+                ],
+                "criticality": "low",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "256349002",
+                            "display": "Peanut allergy"
+                        }
+                    ],
+                    "text": "Peanut allergy"
+                },
+                "patient": {
+                    "reference": "Patient/123"
+                },
+                "reaction": [
+                    {
+                        "manifestation": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "247472004",
+                                        "display": "Hives"
+                                    }
+                                ]
+                            }
+                        ],
+                        "severity": "mild"
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "AllergyIntolerance/2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "456",
+                "identifier": [
+                    {
+                        "system": "http://example.org/provider-ids",
+                        "value": "PRAC-456"
+                    }
+                ],
+                "name": [
+                    {
+                        "use": "official",
+                        "family": "Nguyen",
+                        "given": [
+                            "Sarah",
+                            "A."
+                        ],
+                        "prefix": [
+                            "Dr."
+                        ]
+                    }
+                ],
+                "telecom": [
+                    {
+                        "system": "phone",
+                        "value": "555-222-9876",
+                        "use": "work"
+                    },
+                    {
+                        "system": "email",
+                        "value": "sarah.nguyen@exampleclinics.org",
+                        "use": "work"
+                    }
+                ],
+                "address": [
+                    {
+                        "use": "work",
+                        "line": [
+                            "200 Harbor Medical Way"
+                        ],
+                        "city": "Cambridge",
+                        "state": "MA",
+                        "postalCode": "02139",
+                        "country": "USA"
+                    }
+                ],
+                "qualification": [
+                    {
+                        "identifier": [
+                            {
+                                "system": "http://hl7.org/fhir/sid/us-npi",
+                                "value": "9876543210"
+                            }
+                        ],
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+                                    "code": "MD",
+                                    "display": "Doctor of Medicine"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Practitioner/456"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "List",
+                "id": "1",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nCurrent Devices list for Patient John Doe</div>"
+                },
+                "status": "current",
+                "mode": "working",
+                "title": "Current Remote Monitoring Devices",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://example.org/fhir/list-codes",
+                            "code": "current-remote-devices",
+                            "display": "Current Remote Monitoring Devices"
+                        }
+                    ],
+                    "text": "current-remote-devices"
+                },
+                "subject": {
+                    "reference": "Patient/123"
+                },
+                "date": "2025-11-28T14:12:00Z",
+                "source": {
+                    "reference": "Device/abc123",
+                    "display": "Remote Monitoring Enrollment Order"
+                },
+                "entry": [
+                    {
+                        "item": {
+                            "reference": "Device/1",
+                            "display": "Smart Health Watch"
+                        }
+                    },
+                    {
+                        "item": {
+                            "reference": "Device/9",
+                            "display": "Continuous Glucose Sensor"
+                        }
+                    },
+                    {
+                        "item": {
+                            "reference": "Device/4",
+                            "display": "Bluetooth Blood Pressure Cuff"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "POST",
+                "url": "List/1/$update-functional?for=123&name=\\$current-remote-devices"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Device",
+                "id": "1",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nSmart Watch 706168005 (sct)</div>"
+                },
+                "status": "active",
+                "manufacturer": "WellTrack Technologies",
+                "deviceName": [
+                    {
+                        "name": "Smart Health Watch",
+                        "type": "user-friendly-name"
+                    }
+                ],
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "706168005",
+                            "display": "Smart wearable device"
+                        }
+                    ],
+                    "text": "Smart Health Watch"
+                },
+                "udiCarrier": [
+                    {
+                        "deviceIdentifier": "12345678901234",
+                        "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+                        "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+                    }
+                ],
+                "patient": {
+                    "reference": "Patient/123"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Device/1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Device",
+                "id": "4",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nBluetooth Blood Pressure Cuff 706170006 (sct)</div>"
+                },
+                "status": "active",
+                "manufacturer": "PulseWave Medical",
+                "deviceName": [
+                    {
+                        "name": "Bluetooth Blood Pressure Cuff",
+                        "type": "user-friendly-name"
+                    }
+                ],
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "706170006",
+                            "display": "Blood pressure monitoring device"
+                        }
+                    ],
+                    "text": "Bluetooth Blood Pressure Cuff"
+                },
+                "udiCarrier": [
+                    {
+                        "deviceIdentifier": "55556666777788",
+                        "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+                        "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+                    }
+                ],
+                "patient": {
+                    "reference": "Patient/123"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Device/4"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Device",
+                "id": "9",
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nContinuous Glucose Sensor 706171005 (sct)</div>"
+                },
+                "status": "active",
+                "manufacturer": "GlucoTech Inc.",
+                "deviceName": [
+                    {
+                        "name": "Continuous Glucose Sensor",
+                        "type": "user-friendly-name"
+                    }
+                ],
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "706171005",
+                            "display": "Glucose monitoring device"
+                        }
+                    ],
+                    "text": "Continuous Glucose Sensor"
+                },
+                "udiCarrier": [
+                    {
+                        "deviceIdentifier": "99990000111122",
+                        "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+                        "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+                    }
+                ],
+                "patient": {
+                    "reference": "Patient/123"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Device/9"
+            }
+        }
+    ]
+}

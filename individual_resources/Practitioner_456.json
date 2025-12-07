@@ -1,0 +1,66 @@
+{
+    "resourceType": "Practitioner",
+    "id": "456",
+    "identifier": [
+        {
+            "system": "http://example.org/provider-ids",
+            "value": "PRAC-456"
+        }
+    ],
+    "name": [
+        {
+            "use": "official",
+            "family": "Nguyen",
+            "given": [
+                "Sarah",
+                "A."
+            ],
+            "prefix": [
+                "Dr."
+            ]
+        }
+    ],
+    "telecom": [
+        {
+            "system": "phone",
+            "value": "555-222-9876",
+            "use": "work"
+        },
+        {
+            "system": "email",
+            "value": "sarah.nguyen@exampleclinics.org",
+            "use": "work"
+        }
+    ],
+    "address": [
+        {
+            "use": "work",
+            "line": [
+                "200 Harbor Medical Way"
+            ],
+            "city": "Cambridge",
+            "state": "MA",
+            "postalCode": "02139",
+            "country": "USA"
+        }
+    ],
+    "qualification": [
+        {
+            "identifier": [
+                {
+                    "system": "http://hl7.org/fhir/sid/us-npi",
+                    "value": "9876543210"
+                }
+            ],
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+                        "code": "MD",
+                        "display": "Doctor of Medicine"
+                    }
+                ]
+            }
+        }
+    ]
+}

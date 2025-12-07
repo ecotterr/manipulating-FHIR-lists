@@ -1,0 +1,58 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "2",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nPeanut Snomed: 256349002</div>"
+    },
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                "code": "active"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                "code": "unconfirmed"
+            }
+        ]
+    },
+    "type": "allergy",
+    "category": [
+        "food"
+    ],
+    "criticality": "low",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "256349002",
+                "display": "Peanut allergy"
+            }
+        ],
+        "text": "Peanut allergy"
+    },
+    "patient": {
+        "reference": "Patient/123"
+    },
+    "reaction": [
+        {
+            "manifestation": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "247472004",
+                            "display": "Hives"
+                        }
+                    ]
+                }
+            ],
+            "severity": "mild"
+        }
+    ]
+}

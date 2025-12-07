@@ -1,0 +1,36 @@
+{
+    "resourceType": "Device",
+    "id": "4",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nBluetooth Blood Pressure Cuff 706170006 (sct)</div>"
+    },
+    "status": "active",
+    "manufacturer": "PulseWave Medical",
+    "deviceName": [
+        {
+            "name": "Bluetooth Blood Pressure Cuff",
+            "type": "user-friendly-name"
+        }
+    ],
+    "type": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "706170006",
+                "display": "Blood pressure monitoring device"
+            }
+        ],
+        "text": "Bluetooth Blood Pressure Cuff"
+    },
+    "udiCarrier": [
+        {
+            "deviceIdentifier": "55556666777788",
+            "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+            "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+        }
+    ],
+    "patient": {
+        "reference": "Patient/123"
+    }
+}

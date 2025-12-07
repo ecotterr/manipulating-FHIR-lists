@@ -1,0 +1,36 @@
+{
+    "resourceType": "Device",
+    "id": "1",
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\nSmart Watch 706168005 (sct)</div>"
+    },
+    "status": "active",
+    "manufacturer": "WellTrack Technologies",
+    "deviceName": [
+        {
+            "name": "Smart Health Watch",
+            "type": "user-friendly-name"
+        }
+    ],
+    "type": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "706168005",
+                "display": "Smart wearable device"
+            }
+        ],
+        "text": "Smart Health Watch"
+    },
+    "udiCarrier": [
+        {
+            "deviceIdentifier": "12345678901234",
+            "issuer": "http://hl7.org/fhir/NamingSystem/fda-udi",
+            "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi"
+        }
+    ],
+    "patient": {
+        "reference": "Patient/123"
+    }
+}
